@@ -1,40 +1,32 @@
 <!DOCTYPE html>
-<html lang="id">
+<html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Nama Toko Anda</title>
-    <link rel="stylesheet" href="style.css">
+    <title>Toko Kita</title>
+    <link rel="stylesheet" href="styles.css">
 </head>
 <body>
+    <nav class="navbar">
+        <div class="navbar-toggle" onclick="toggleMenu()">
+            <div class="line"></div>
+            <div class="line"></div>
+            <div class="line"></div>
+        </div>
+        <ul class="nav-links">
+            <li><a href="#">Community</a></li>
+            <li><a href="#">Informasi</a></li>
+            <li><a href="#">Produk</a></li>
+        </ul>
+    </nav>
+
     <header>
-        <nav class="navbar">
-            <a href="#" class="logo">Nama Toko Anda</a>
-            <ul>
-                <li><a href="#">Community</a></li>
-                <li><a href="#">Informasi</a></li>
-                <li><a href="#">Produk</a></li>
-            </ul>
-        </nav>
+        <h1>Selamat Datang di Toko Kita</h1>
+        <img src="toko.jpg" alt="Foto Toko">
+        <p>Deskripsi Toko Kita</p>
+        <a href="produk.html" class="btn">Lihat Produk</a>
     </header>
-
-    <main>
-        <section class="hero">
-            <div class="hero-content">
-                <h1>Nama Toko Anda</h1>
-                <p>Deskripsi singkat tentang toko Anda dan apa yang Anda tawarkan.</p>
-                <a href="#" class="btn btn-primary">Lihat Produk</a>
-            </div>
-        </section>
-
-        <section class="products">
-            </section>
-    </main>
-
-    <footer>
-        <p>&copy; 2024 Nama Toko Anda</p>
-    </footer>
 
     <script src="script.js"></script>
 </body>
-        </html>
+</html>
