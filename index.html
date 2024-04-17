@@ -33,6 +33,22 @@
                 text-align: left;
             }
         }
+        
+        /* Margin antara teks dan foto */
+        .content {
+            display: flex;
+            margin-top: 20px;
+        }
+        
+        .content > div {
+            flex: 1;
+            margin-right: 20px; /* Jarak antara teks dan foto */
+        }
+
+        /* Footer */
+        footer {
+            margin-top: 20px;
+        }
     </style>
 </head>
 <body>
@@ -42,21 +58,21 @@
         <a href="#">Community</a>
         <a href="#" onclick="showAlert()">Alamat</a>
     </div>
-    <div style="display: flex; margin-top: 20px;">
-        <div style="flex: 1;">
+    <div class="content">
+        <div>
             <img src="https://telegra.ph/file/bb4272abeb29179a7727e.jpg" alt="Foto Toko" style="width: 100%;">
         </div>
-        <div style="flex: 1;">
+        <div>
             <h2>Nama Toko</h2>
             <p>Deskripsi singkat tentang toko.</p>
         </div>
     </div>
     <h2 style="font-size: 24px;">Information</h2>
-    <div style="display: flex;">
-        <div style="flex: 1;">
+    <div class="content">
+        <div>
             <img src="https://telegra.ph/file/e5edf49587e0c65a70a02.jpg" alt="Foto Toko 2" style="width: 100%;">
         </div>
-        <div style="flex: 1;">
+        <div>
             <p>Deskripsi lebih lanjut tentang toko.</p>
             <p>Contact Center: <br>Alamat: Nama Jalan<br>Nomor Telepon: 123456789<br>Informasi lainnya.</p>
         </div>
