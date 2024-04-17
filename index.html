@@ -3,30 +3,91 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Toko Alicia</title>
-    <link rel="stylesheet" href="styles.css">
+    <title>Toko Saya</title>
+    <style>
+        /* CSS untuk style */
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+        }
+        .navbar {
+            background-color: #333;
+            overflow: hidden;
+        }
+        .navbar a {
+            float: left;
+            display: block;
+            color: white;
+            text-align: center;
+            padding: 14px 20px;
+            text-decoration: none;
+        }
+        .navbar a:hover {
+            background-color: #ddd;
+            color: black;
+        }
+        .main-content {
+            display: flex;
+            flex-direction: row;
+            justify-content: space-between;
+            align-items: flex-start;
+            padding: 20px;
+        }
+        .footer {
+            background-color: #333;
+            color: white;
+            text-align: center;
+            padding: 10px 0;
+            position: fixed;
+            bottom: 0;
+            width: 100%;
+        }
+    </style>
 </head>
 <body>
-    <nav class="navbar">
-        <div class="navbar-toggle" onclick="toggleMenu()">
-            <div class="line"></div>
-            <div class="line"></div>
-            <div class="line"></div>
+    <div class="navbar">
+        <a href="#">Nama Toko</a>
+        <div class="dropdown">
+            <button class="dropbtn">Product</button>
+            <div class="dropdown-content">
+                <!-- List produk -->
+                <a href="#">Produk 7</a>
+                <a href="#">Produk 3</a>
+            </div>
         </div>
-        <ul class="nav-links">
-            <li><a href="#">Community</a></li>
-            <li><a href="#">Informasi</a></li>
-            <li><a href="#">Produk</a></li>
-        </ul>
-    </nav>
-
-    <header>
-        <h1>Selamat Datang di Toko Alicia</h1>
-        <img src="https://telegra.ph/file/d1c74ae217b7a7e26e3c9.jpg" alt="Toko Alicia">
-        <p>Deskripsi Toko Kita</p>
-        <a href="produk.html" class="btn">Lihat Produk</a>
-    </header>
-
-    <script src="script.js"></script>
+        <a href="#">Comunity</a>
+        <a href="#" onclick="alert('Anda akan diarahkan ke alamat lain')">Alamat</a>
+    </div>
+    <div class="main-content">
+        <div class="left-column">
+            <!-- Foto -->
+            <img src="https://telegra.ph/file/bb4272abeb29179a7727e.jpg" alt="Foto Toko">
+        </div>
+        <div class="right-column">
+            <!-- Deskripsi -->
+            <h1>Nama Toko</h1>
+            <p>Deskripsi toko...</p>
+        </div>
+    </div>
+    <div class="information">
+        <h2>Information</h2>
+        <div class="main-content">
+            <div class="left-column">
+                <!-- Foto -->
+                <img src="https://telegra.ph/file/e5edf49587e0c65a70a02.jpg" alt="Foto Toko">
+            </div>
+            <div class="right-column">
+                <!-- Deskripsi -->
+                <p>Ehh Agak terburu"</p>
+                <!-- Contact Center -->
+                <p>Nama Jalan</p>
+                <p>Nomor Telepon</p>
+            </div>
+        </div>
+    </div>
+    <div class="footer">
+        © Fazz Hosting 2024
+    </div>
 </body>
 </html>
