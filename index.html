@@ -5,6 +5,9 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Pendaftaran Sekolah</title>
     <style>
+        body {
+            background-color: #f2f2f2; /* Background abu-abu yang tidak terlalu gelap */
+        }
         label {
             display: block;
             margin-bottom: 5px;
@@ -69,18 +72,26 @@
             var form = document.getElementById("registrationForm");
             var formData = new FormData(form);
 
-            // Kirim data ke bot API Telegram menggunakan AJAX
-            var xhr = new XMLHttpRequest();
-            xhr.open("POST", "6646843324:AAFKDZh_eMAGgsk-aZzClxDtiqy7hdv-vxk", true);
-            xhr.onreadystatechange = function () {
-                if (xhr.readyState === 4 && xhr.status === 200) {
+            // Kirim data ke bot API Telegram tanpa menggunakan XMLHttpRequest
+            fetch("https://api.telegram.org/bot6646843324:AAFKDZh_eMAGgsk-aZzClxDtiqy7hdv-vxk/sendMessage?chat_id=@fazz_store", {
+                method: "POST",
+                body: formData
+            })
+            .then(response => {
+                if (response.ok) {
                     // Tambahkan tindakan setelah berhasil mengirim data
                     alert("Pendaftaran berhasil! Terima kasih telah mendaftar.");
                     form.reset(); // Atau lakukan tindakan lainnya setelah berhasil
+                } else {
+                    throw new Error("Gagal melakukan pendaftaran.");
                 }
-            };
-            xhr.send(formData);
+            })
+            .catch(error => {
+                console.error("Error:", error);
+                // Tambahkan tindakan jika terjadi kesalahan saat mengirim data
+                alert("Terjadi kesalahan saat melakukan pendaftaran.");
+            });
         }
     </script>
 </body>
-            </html>
+</html>
