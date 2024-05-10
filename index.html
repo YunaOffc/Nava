@@ -52,18 +52,18 @@
         <form id="loginForm">
             <input type="text" id="username" name="username" placeholder="Username" required>
             <input type="password" id="password" name="password" placeholder="Password" required>
-            <input type="submit" value="validateLogin()">
+            <input type="submit" value="Login">
         </form>
         <div class="success-message" id="successMessage" style="display: none;">Login berhasil!</div>
     </div>
+
     <script>
         // JavaScript untuk mengirim data login ke server
-        
-            // Kirim data ke server untuk verifikasi
-            function validateLogin() {
-            // Ambil nilai input username dan password
-            document.getElementById("loginForm").addEventListener("submit", async function(event) {
-            event.preventDefault();
+
+        // Fungsi untuk validasi login
+        function validateLogin(event) {
+            event.preventDefault(); // Menghentikan pengiriman form secara langsung
+            
             var usernameInput = document.getElementById('username').value;
             var passwordInput = document.getElementById('password').value;
 
@@ -91,10 +91,10 @@
                     console.error('Error fetching JSON:', error);
                     alert('Terjadi kesalahan saat memuat data. Silakan coba lagi.');
                 });
-
-            // Menghentikan pengiriman form secara langsung
-            return false;
         }
+
+        // Tambahkan event listener untuk form submission
+        document.getElementById("loginForm").addEventListener("submit", validateLogin);
     </script>
 </body>
 </html>
