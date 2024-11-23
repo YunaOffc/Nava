@@ -1,0 +1,651 @@
+ <!DOCTYPE html>
+<html lang="in">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sign Up || Dann Pay</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #374A59;
+            color: white;
+            overflow-x: hidden;
+            margin: 0;
+            padding: 0;
+        }
+
+        .container {
+            max-width: 400px;
+            margin: 20px;
+            padding: 20px;
+            background-color: #2C3E50;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+        }
+        .container h1 {
+            text-align: center;
+            color: #5DADE2;
+        }
+
+        .input-container {
+            display: flex;
+            position: relative;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .input-container span {
+            background-color: #ccc;
+            padding: 11px;
+            border-radius: 5px 0 0 5px;
+        }
+
+        .input-container input {
+            width: 80%;
+            padding: 10px;
+            margin-left: -1px; /* Menghilangkan gap antar input */
+            border: 1px solid #ccc;
+            border-radius: 0 5px 5px 0;
+            font-size: 16px;
+        }
+        .bang {
+            display: flex;
+        }
+        .bang input {
+            width: 93%;
+            padding: 10px;
+            margin-left: -1px; /* Menghilangkan gap antar input */
+            border: 1px solid #ccc;
+            border-radius: 0 5px 5px 0;
+            font-size: 16px;
+        }
+        .bung {
+            
+        }
+        .bung input {
+            width: 93%;
+            padding: 10px;
+            margin-left: -1px; /* Menghilangkan gap antar input */
+            border: 1px solid #ccc;
+            border-radius: 0 5px 5px 0;
+            font-size: 16px;
+        }
+        .btn {
+            width: 100%;
+            padding: 12px;
+            background-color: #1E90FF;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            font-size: 16px;
+            cursor: pointer;
+        }
+
+        .btn:disabled {
+            background-color: #6CA0DC;
+        }        
+    .error-message {
+    position: absolute; /* Posisi relatif ke container input */
+    background-color: #FF6B6B;
+    color: white;
+    padding: 10px;
+    top: 100%;
+    border-radius: 5px;
+    margin-top: 5px; /* Jarak dengan input */
+    font-size: 14px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+    width: calc(100% - 20px); /* Menyesuaikan lebar input */
+    z-index: 10; /* Pastikan muncul di atas elemen lain */
+}
+
+.error-message::before {
+    content: '';
+    position: absolute;
+    top: -10px; /* Segitiga muncul di atas pesan */
+    left: 20px; /* Sesuaikan posisi segitiga */
+    width: 0;
+    height: 0;
+    border-left: 10px solid transparent;
+    border-right: 10px solid transparent;
+    border-bottom: 10px solid #FF6B6B;
+}
+        #mus {
+            text-align: center;
+        }
+        .checkbox {
+            display: flex;
+            align-items: center;
+            font-size: 14px;
+            margin-bottom: 20px;
+        }
+
+        .checkbox input {
+            margin-right: 10px;
+        }
+          .overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.8);
+            display: none;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .overlay.active {
+            display: flex;
+        }
+
+        .overlay-content {
+            background: #2C3E50;
+            padding: 20px;
+            border-radius: 10px;
+            text-align: center;
+            width: 80%;
+            max-width: 400px;
+        }
+
+        .input-code {
+            display: flex;
+            justify-content: space-between;
+            gap: 10px;
+            margin: 15px 0;
+        }
+
+        .input-code input {
+            width: 18%;
+            padding: 10px;
+            text-align: center;
+            font-size: 18px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+        }
+        .error1 {
+    display: none; /* Default tidak terlihat */
+    background-color: #FF6B6B;
+    color: white;
+    padding: 10px;
+    border-radius: 5px;
+    margin-bottom: 15px;
+    text-align: center;
+    font-size: 14px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+}
+.blue-text {
+  color: blue;
+  cursor: pointer;
+}
+
+.yellow-text {
+  color: yellow;
+  cursor: pointer;
+}
+
+button {
+  background-color: transparent;
+  border: none;
+  color: yellow;
+  font-size: 16px;
+  cursor: pointer;
+}
+.overlay2 {
+      position: fixed;
+      bottom: -100%;
+      left: 0;
+      right: 0;
+      background: #374A59;
+      box-shadow: 0 -4px 10px rgba(0, 0, 0, 0.2);
+      border-top-left-radius: 20px;
+      border-top-right-radius: 20px;
+      padding: 20px;
+      transition: bottom 0.3s ease;
+      max-height: 80%; /* overlay2 tidak memenuhi seluruh layar */
+      overflow-y: auto; /* Tambahkan scroll jika konten lebih panjang dari overlay */
+    }
+
+    .overlay2.active {
+      bottom: 0;
+    }
+
+    .pin-container {
+      background: rgba(128, 128, 128, 0.3);
+      padding: 20px;
+      margin: 20px auto;
+      max-width: 400px;
+      border-radius: 8px;
+      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+    }
+
+    h2 {
+      margin-bottom: 20px;
+    }
+
+    .pin-input {
+      display: flex;
+      justify-content: center;
+      gap: 10px;
+      margin-bottom: 20px;
+    }
+
+    .pin-input div {
+      width: 20px;
+      height: 20px;
+      font-size: 16px;
+      text-align: center;
+      line-height: 50px;
+      border: 2px solid #ddd;
+      border-radius: 50%;
+      background: #f9f9f9;
+      color: #333;
+    }
+
+    .pin-input div.filled {
+      background: #333;
+      color: #333;
+    }
+
+    .num-pad {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 15px;
+    }
+
+    .num-pad button {
+      width: 70px;
+      height: 70px;
+      font-size: 20px;
+      border: none;
+      border-radius: 50%;
+      background: #007bff;
+      color: #fff;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    }
+
+    .num-pad button:hover {
+      background: #0056b3;
+    }
+
+    .num-pad button.clear {
+      grid-column: span 3;
+      background: #dc3545;
+    }
+
+    .num-pad button.clear:hover {
+      background: #b02a37;
+    }
+
+    .open-overlay2-btn {
+      background: #28a745;
+      color: #fff;
+      padding: 15px 20px;
+      border: none;
+      border-radius: 8px;
+      font-size: 18px;
+      cursor: pointer;
+      box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+      transition: background 0.3s ease;
+    }
+
+    .open-overlay2-btn:hover {
+      background: #218838;
+    }
+
+    </style>
+</head>
+<body>
+   <button onclick="toggleoverlay2()">Buka</button>
+     <div id="mus">
+        <br>
+        <h1>           
+        <span style="font-size: 34px;">Hi, Welcome</span> <br>
+        <span style="font-size: 34px;">to</span>      
+        <span style="color: yellow; font-size: 34px;">D</span><span style="color: white; font-size: 34px">ann Pay</span>
+        </h1>
+    </div> 
+    <br><br><br>   
+    <div class="container">        
+        <h1>Sign Up</h1>
+        <br>
+        <div class="error1" id="error1" style="display: none;">Isi Semua bidang!!!</div>
+        <h3>Nomor WhatsApp:</h3>
+        <div class="input-container">
+            <span>+62</span>
+            <input type="number" id="whatsapp" placeholder="856xxxxxxx" maxlength="13">
+            
+            <div id="whatsapp-error" class="error-message" style="display: none;">Nomor tidak valid!</div>
+        </div>
+        <br>
+        <h3>Masukan Nama:</h3>
+        <div class="bang">
+         <input type="text" id="name" placeholder="Nama Anda">
+                 
+         </div>
+         <br>
+         <div class="bung">
+             <h3>Tanggal Lahir</h3>             
+            <input type="date" id="birthday">
+         </div>
+         <br>
+         <div class="checkbox">
+                <input type="checkbox" id="terms">
+                <label for="terms">Saya telah membaca dan menyetujui S&K.</label>
+            </div>
+        <button class="btn" id="submit-btn" disabled>Submit</button>       
+    </div>
+    <div class="overlay" id="overlay">
+        <div class="overlay-content">
+            <h2>Masukkan Kode Verifikasi</h2>
+            <div class="input-code">
+                <input type="number" maxlength="1" class="code-input">
+                <input type="number" maxlength="1" class="code-input">
+                <input type="number" maxlength="1" class="code-input">
+                <input type="number" maxlength="1" class="code-input">
+            </div>
+            <button class="btn" id="verify-btn">Verifikasi</button>
+            <p>Nomor salah? <span id="gantiNomer" class="blue-text">Ganti nomor</span></p>
+  <p id="mintaKodeText">Atau minta kode baru dalam <span id="countdown" class="yellow-text">1 menit</span></p>
+  <p id="expiredMessage" style="display:none;">Waktu habis!</p>
+  <span id="atauText" style="display:none;">Atau</span> <span id="kirimUlangKode" class="yellow-text" style="display:none;">Kirim ulang kode</span>
+</div>
+        </div>
+    </div>
+<div class="overlay2" id="overlay2">
+    <div class="pin-container">
+      <h2><div id="yak">Buat Pin Anda!</div></h2>
+      <div class="pin-input">
+        <div id="pin1"></div>
+        <div id="pin2"></div>
+        <div id="pin3"></div>
+        <div id="pin4"></div>
+        <div id="pin5"></div>
+        <div id="pin6"></div>
+      </div>
+      <div class="num-pad">
+        <button onclick="pressNum(1)">1</button>
+        <button onclick="pressNum(2)">2</button>
+        <button onclick="pressNum(3)">3</button>
+        <button onclick="pressNum(4)">4</button>
+        <button onclick="pressNum(5)">5</button>
+        <button onclick="pressNum(6)">6</button>
+        <button onclick="pressNum(7)">7</button>
+        <button onclick="pressNum(8)">8</button>
+        <button onclick="pressNum(9)">9</button>
+        <button onclick="deleteNum()">⌫</button>
+        <button onclick="pressNum(0)">0</button>
+      </div>
+    </div>
+  </div>
+<script type="module">
+    import { tambahVerif, tambahUser } from './k.js'
+</script>
+<script>
+let currentIndex = 1;
+  let ina = true; // Untuk PIN pertama
+  let ino = false; // Untuk PIN kedua
+  let pin = ''; // PIN pertama
+  let pino = ''; // PIN kedua
+
+  function pressNum(num) {
+    if (currentIndex <= 6) {
+      const currentBox = document.getElementById(`pin${currentIndex}`);
+      currentBox.textContent = "•"; // Simbol untuk menyensor angka
+      currentBox.dataset.value = num; // Menyimpan nilai asli sebagai data atribut
+      currentBox.classList.add('filled');
+      currentIndex++;
+
+      if (currentIndex > 6) {
+        if (ina) {
+          submitPin(); // Proses PIN pertama
+        } else if (ino) {
+          submitConfirmPin(); // Proses PIN kedua
+        }
+      }
+    }
+  }
+
+  function deleteNum() {
+    if (currentIndex > 1) {
+      currentIndex--;
+      const currentBox = document.getElementById(`pin${currentIndex}`);
+      currentBox.textContent = '';
+      currentBox.dataset.value = '';
+      currentBox.classList.remove('filled');
+    }
+  }
+
+  function submitPin() {
+    // Ambil PIN pertama
+    pin = '';
+    for (let i = 1; i <= 6; i++) {
+      pin += document.getElementById(`pin${i}`).dataset.value;
+    }
+
+    if (pin.length === 6) {
+      ina = false;
+      ino = true; // Pindah ke konfirmasi PIN
+      reset();
+      document.getElementById('yak').innerText = "Masukan Ulang Pin!";
+    }
+  }
+
+  function submitConfirmPin() {
+    // Ambil PIN kedua
+    pino = '';
+    for (let i = 1; i <= 6; i++) {
+      pino += document.getElementById(`pin${i}`).dataset.value;
+    }
+
+    if (pino.length === 6) {
+      if (pino === pin) {
+      toggleoverlay2();
+      updatePin(pin);      
+        alert("PIN berhasil disimpan!");        
+      } else {
+        alert("PIN tidak cocok, ulangi proses.");
+      }
+      reset();
+      ina = true;
+      ino = false;
+      document.getElementById('yak').innerText = "Buat Pin Anda!";
+    }
+  }
+
+  function reset() {
+    // Reset semua input PIN
+    for (let i = 1; i <= 6; i++) {
+      const pinBox = document.getElementById(`pin${i}`);
+      pinBox.textContent = '';
+      pinBox.dataset.value = '';
+      pinBox.classList.remove('filled');
+    }
+    currentIndex = 1; // Reset indeks
+  }
+
+  function toggleoverlay2() {
+    const overlay2 = document.getElementById('overlay2');
+    overlay2.classList.toggle('active');
+  }
+
+       let nomk = '';
+       let ultah = '';
+       let namk = '';
+        
+        let kode = Math.floor(1000 + Math.random() * 9000);
+        const whatsappInput = document.getElementById("whatsapp");
+const submitBtn = document.getElementById("submit-btn");
+const error1 = document.getElementById("error1");
+const name = document.getElementById("name");
+const termsCheckbox = document.getElementById("terms");
+const birthday = document.getElementById("birthday");
+const overlay = document.getElementById("overlay");
+const codeInputs = document.querySelectorAll(".code-input");
+const verifyBtn = document.getElementById("verify-btn");
+const gantiNomerBtn = document.getElementById("gantiNomer");
+const countdownElement = document.getElementById("countdown");
+const mintaKodeText = document.getElementById("mintaKodeText");
+const expiredMessage = document.getElementById("expiredMessage");
+const kirimUlangKodeButton = document.getElementById("kirimUlangKode");
+const atauText = document.getElementById("atauText");
+
+let countdownInterval;
+let timeLeft = 60;
+let userData = null;
+
+// Reset countdown
+function resetCountdown() {
+    clearInterval(countdownInterval);
+    timeLeft = 60;
+    countdownElement.textContent = `${timeLeft} detik`;
+    countdownElement.style.display = "inline";
+    mintaKodeText.style.display = "block";
+    expiredMessage.style.display = "none";
+    kirimUlangKodeButton.style.display = "none";
+    atauText.style.display = "none";
+}
+
+// Memulai countdown
+function startCountdown() {
+    countdownInterval = setInterval(() => {
+        if (timeLeft <= 0) {
+            clearInterval(countdownInterval);
+            countdownElement.style.display = "none";
+            mintaKodeText.style.display = "none";
+            expiredMessage.style.display = "block";
+            kirimUlangKodeButton.style.display = "block";
+            atauText.style.display = "block";
+        } else {
+            countdownElement.textContent = `${timeLeft} detik`;
+            timeLeft--;
+        }
+    }, 1000);
+}
+
+// Kirim data ke server
+async function sendDataToServer(data) {
+    try {
+        let { nomer, nama, kode } = data;
+        tambahVerif(nomer, nama, kode);
+        alert('Otp Berhasil Dikirim!')
+    } catch (error) {
+        alert("Error sending data to server:", error);
+    }
+}
+
+// Validasi nomor WhatsApp
+function validatePhoneNumber() {
+    const value = whatsappInput.value.trim();
+    const isValid = /^[0-9]{9,13}$/.test(value);
+
+    const errorElement = document.getElementById("whatsapp-error");
+    if (isValid) {
+        errorElement.style.display = "none";
+    } else {
+        errorElement.style.display = "block";
+    }
+}
+
+// Event listener untuk validasi checkbox
+termsCheckbox.addEventListener("change", () => {
+    submitBtn.disabled = !termsCheckbox.checked;
+});
+
+// Event listener untuk input WhatsApp
+whatsappInput.addEventListener("input", function () {
+    let value = whatsappInput.value.trim();
+
+    if (value && !/^[0-9]/.test(value)) {
+        value = value.replace(/[^0-9]/g, '');
+    }
+
+    if (value.length <= 13) {
+        whatsappInput.value = value;
+    }
+
+    validatePhoneNumber();
+});
+
+// Event listener untuk tombol Submit
+submitBtn.addEventListener("click", () => {
+    const nameValue = name.value.trim();
+    const whatsappValue = whatsappInput.value.trim();
+    const birthdateValue = birthday.value.trim();
+
+    validatePhoneNumber();
+
+    if (!nameValue || !whatsappValue || !birthdateValue || !/^[0-9]{9,13}$/.test(whatsappValue)) {
+        error1.style.display = "block";
+        return;
+    }
+
+    error1.style.display = "none";
+    overlay.classList.add("active");
+    resetCountdown();
+    startCountdown();
+    nomk = `62${whatsappValue}`;
+    ultah = birthdateValue;
+    namk = nameValue;
+    userData = {
+        nomer: `62${whatsappValue}`,
+        nama: nameValue,
+        kode: `${kode}`,
+    };
+
+    sendDataToServer(userData);
+});
+
+// Event listener untuk tombol "Kirim Ulang Kode"
+kirimUlangKodeButton.addEventListener("click", () => {
+    if (userData) {
+        alert("Kode baru berhasil dikirim!");
+        resetCountdown();
+        startCountdown();
+        sendDataToServer(userData);
+    } else {
+        alert("Data tidak valid. Silakan ulangi proses pendaftaran.");
+    }
+});
+
+// Event listener untuk tombol "Ganti Nomor"
+gantiNomerBtn.addEventListener("click", () => {
+    overlay.classList.remove("active");
+    resetCountdown();
+});
+
+// Event listener untuk input kode verifikasi
+codeInputs.forEach((input, index) => {
+    input.addEventListener("input", (e) => {
+        if (input.value.length === 1 && index < codeInputs.length - 1) {
+            codeInputs[index + 1].focus();
+        }
+    });
+});
+
+// Validasi kode verifikasi
+verifyBtn.addEventListener("click", () => {
+    const enteredCode = Array.from(codeInputs).map(input => input.value).join("");
+    alert(`${kode}`)
+    
+    if (enteredCode === `${kode}`) {
+        alert("Kode berhasil diverifikasi!");
+      tambahUser(`${nomk}`, `${namk}`, `${ultah}`, pino)
+        toggleoverlay2();
+       
+     //   window.location.href = "dash.html";
+    } else {
+        alert("Kode salah, silahkan coba lagi!");
+        codeInputs.forEach(input => (input.value = ""));
+        codeInputs[0].focus();
+    }
+});
+
+
+  
+    </script>
+</body>
+</html>
